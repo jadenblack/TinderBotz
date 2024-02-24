@@ -11,20 +11,20 @@ if __name__ == "__main__":
     # Or if you want to use a proxy
     # AUTHORISED BY IP -> "HOST:PORT"
     # AUTHORISED BY USERNAME, PASSWORD -> "username:password@HOST:PORT"
-    session = Session(proxy="23.23.23.23:3128")
+    # session = Session(proxy="23.23.23.23:3128")
 
     # set location (Don't need to be logged in for this)
-    session.set_custom_location(latitude=50.879829, longitude=4.700540)
-    
+    session.set_custom_location(latitude=-22.983776, longitude=-43.193313)
+
     # replace this with your own email and password!
-    email = "example@gmail.com"
-    password = "password123"
+    email = "jadenmblack@gmail.com"
+    password = "m@4IQIHW6IPrl4n!"
     
     # login using your google account with a verified email!
-    session.login_using_google(email, password)
+    session.login_using_google(jadenmblack@gmail.com, m@4IQIHW6IPrl4n!)
 
     # Alternatively you can login using facebook with a connected profile!
-    session.login_using_facebook(email, password)
+    # session.login_using_facebook(email, password)
 
     # Alternatively, you can also use your phone number to login
     '''
@@ -32,9 +32,9 @@ if __name__ == "__main__":
     - phone_number is everything after the prefix (+32)
     NOTE: this is not my phone number :)
     '''
-    country = "Belgium"
-    phone_number = "479011124"
-    session.login_using_sms(country, phone_number)
+    country = "Brasil"
+    phone_number = "+5521979944321"
+    # session.login_using_sms(country, phone_number)
 
     # spam likes, dislikes and superlikes
     # to avoid being banned:
@@ -43,20 +43,20 @@ if __name__ == "__main__":
     # by default the amount is 1, ratio 100% and sleep 1 second
     session.like(amount=10, ratio="72.5%", sleep=1)
     session.dislike(amount=1)
-    session.superlike(amount=1)
+    session.superlike(amount=0)
     
     # adjust allowed distance for geomatches
     # Note: PARAMETER IS IN KILOMETERS!
-    session.set_distance_range(km=150)
+    session.set_distance_range(km=5)
 
     # set range of prefered age
-    session.set_age_range(18, 55)
+    session.set_age_range(18, 38)
 
     # set interested in gender(s) -> options are: WOMEN, MEN, EVERYONE
     session.set_sexuality(Sexuality.WOMEN)
 
     # Allow profiles from all over the world to appear
-    session.set_global(True)
+    session.set_global(False)
 
     # Getting matches takes a while, so recommended you load as much as possible from local storage
     # get new matches, with whom you haven't interacted yet
@@ -65,14 +65,14 @@ if __name__ == "__main__":
     new_matches = session.get_new_matches(amount=10, quickload=False)
     # get already interacted with matches (matches with whom you've chatted already)
     messaged_matches = session.get_messaged_matches()
-    
+
     # you can store the data and images of these matches now locally in data/matches
     # For now let's just store the messaged_matches
     for match in messaged_matches:
         session.store_local(match)
 
     # Pick up line with their personal name so it doesn't look spammy
-    pickup_line = "Hey {}! You. Me. Pizza? Or do you not like pizza?"
+    pickup_line = "Oi {name}, tudo bem? Feliz ou trist nao mais Carnival?"
 
     # loop through my new matches and send them the first message of the conversation
     for match in new_matches:
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         session.send_song(chatid=id, songname="")
 
         # send instagram or other socials like facebook, phonenumber and snapchat
-        session.send_socials(chatid=id, media=Socials.INSTAGRAM, value="Fredjemees")
+        session.send_socials(chatid=id, media=Socials.INSTAGRAM, value="jadenmblack")
 
         # you can also unmatch
         #session.unmatch(chatid=id)
